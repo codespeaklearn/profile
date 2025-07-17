@@ -1,1 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeSpeakLearn Brochure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5; /* Light, modern background */
+            color: #333; /* Dark text for readability */
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px;
+            background: #ffffff; /* Clean white background */
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Pronounced, yet soft shadow */
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(to right, #1a2a6c, #b21f1f); /* Deep blue to red gradient */
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: #fff; /* White text for contrast */
+        }
+
+        header img {
+            max-width: 150px; /* Adjusted size for square logo */
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 8px; /* Slightly rounded corners for square logo */
+            border: 4px solid #fdd835; /* Gold accent border */
+            object-fit: contain; /* Ensure the image fits well */
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            margin-bottom: 8px;
+            color: #fdd835; /* Gold for prominence */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        /* Tabs Navigation */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tab-button {
+            background: #e0e0e0; /* Light gray for inactive tabs */
+            border: none;
+            padding: 12px 28px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            color: #555;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(253, 216, 53, 0.2), transparent); /* Gold shimmer */
+            transition: 0.5s;
+        }
+
+        .tab-button:hover::before {
+            left: 100%;
+        }
+
+        .tab-button:hover, .tab-button.active {
+            background: linear-gradient(to right, #1a2a6c, #b21f1f); /* Gradient for active/hover */
+            color: #fdd835; /* Gold text */
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0; /* Subtle border for all slides */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            animation: slideIn 0.6s cubic-bezier(0.23, 1, 0.32, 1); /* Smoother animation */
+            position: relative; /* For the top border animation */
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.6em;
+            margin-bottom: 25px;
+            color: #1a2a6c; /* Deep blue heading */
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .tab-content h2::after {
+            content: '';
+            width: 90px; /* Wider, bolder underline */
+            height: 5px;
+            background: #b21f1f; /* Red accent */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+
+        .tab-content p {
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .tab-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .tab-content ul li {
+            position: relative;
+            padding-left: 35px; /* More space for custom bullet */
+            margin-bottom: 12px;
+            font-size: 1.05em;
+            color: #555;
+        }
+
+        .tab-content ul li::before {
+            content: "\f00c"; /* Font Awesome checkmark */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #28a745; /* Vibrant green */
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 1.2em;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .tab-content ul li:hover::before {
+            transform: scale(1.2);
+        }
+
+        /* Call to Action Button */
+        .cta-button {
+            display: inline-flex; /* Use flex for icon & text alignment */
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, #b21f1f, #1a2a6c); /* Red to blue gradient */
+            color: #ffffff;
+            padding: 14px 30px;
+            border-radius: 8px; /* Slightly more rounded */
+            text-decoration: none;
+            font-size: 1.15em; /* Slightly larger text */
+            font-weight: 600;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: none; /* Remove default button border */
+            cursor: pointer;
+        }
+
+        .cta-button i {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #fdd835; /* Gold icon */
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            opacity: 0.9;
+        }
+
+        /* Specific CTA for Contact */
+        .contact-cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Space between contact buttons */
+            margin-top: 25px;
+        }
+
+        .contact-cta-buttons .cta-button {
+            margin-top: 0; /* Override default margin */
+        }
+
+        /* Cards - Courses and Team */
+        .courses-grid, .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px; /* Increased gap for better separation */
+            margin-top: 20px;
+        }
+
+        .course-card, .team-card {
+            background: #ffffff;
+            color: #333;
+            padding: 30px; /* More padding */
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Smoother transition */
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0; /* Subtle border */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .course-card::before, .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 7px; /* Thicker accent stripe */
+            background: linear-gradient(to right, #fdd835, #b21f1f); /* Gold to red gradient stripe */
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease-out;
+        }
+
+        .course-card:hover::before, .team-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .course-card:hover, .team-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .course-card i, .team-card i {
+            font-size: 3.5em; /* Even larger icons */
+            color: #1a2a6c; /* Deep blue for icons */
+            margin-bottom: 20px;
+            animation: iconPop 0.8s ease-out; /* More defined icon animation */
+        }
+
+        @keyframes iconPop {
+            0% { transform: scale(0.5) opacity(0); }
+            60% { transform: scale(1.2) opacity(1); }
+            100% { transform: scale(1); }
+        }
+
+        .course-card h3, .team-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.9em;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .course-card p, .team-card p {
+            font-size: 1em;
+            opacity: 0.9;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .team-card img {
+            width: 130px; /* Slightly larger team images */
+            height: 130px;
+            border-radius: 8px; /* Square with slight rounding */
+            margin-bottom: 18px;
+            object-fit: cover;
+            border: 4px solid #fdd835; /* Gold border */
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover img {
+            transform: rotate(2deg) scale(1.05);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 10px;
+            color: #333;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-info h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.6em;
+            margin-bottom: 25px;
+            color: #1a2a6c;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .contact-info h2::after {
+            content: '';
+            width: 90px;
+            height: 5px;
+            background: #b21f1f;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+
+        .contact-details {
+            margin-top: 20px;
+            word-break: break-word;
+        }
+
+        .contact-details p {
+            font-size: 1.15em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+        }
+
+        .contact-details p i {
+            margin-right: 15px;
+            color: #b21f1f; /* Red for contact icons */
+            font-size: 1.4em;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #2c3e50; /* Darker footer for contrast */
+            border-radius: 10px;
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #e0e0e0; /* Light text on dark footer */
+            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            .tab-button {
+                font-size: 1em;
+                padding: 10px 18px;
+                margin: 5px;
+            }
+
+            .tab-content h2 {
+                font-size: 2.2em;
+            }
+
+            .courses-grid, .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-card, .team-card {
+                padding: 25px;
+            }
+
+            .course-card i, .team-card i {
+                font-size: 3em;
+            }
+
+            .course-card h3, .team-card h3 {
+                font-size: 1.7em;
+            }
+
+            .team-card img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .contact-details p {
+                font-size: 1.05em;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-details p i {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1.05em;
+            }
+
+            .contact-cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 0.95em;
+            }
+
+            .tab-button {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+
+            .tab-content h2 {
+                font-size: 1.9em;
+            }
+
+            .contact-details p {
+                font-size: 0.95em;
+            }
+
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://codespeaklearn.com/wp-content/uploads/2025/02/CSL-Logos-e1739614479783.png" alt="CodeSpeakLearn Logo">
+            <h1>CodeSpeakLearn</h1>
+            <p>Unlock your potential with expert-led professional & language training</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('about')">About Us</button>
+            <button class="tab-button" onclick="openTab('courses')">Courses</button>
+            <button class="tab-button" onclick="openTab('team')">Our Team</button>
+            <button class="tab-button" onclick="openTab('contact')">Contact</button>
+        </div>
+
+        <div id="about" class="tab-content active">
+            <h2>About Us</h2>
+            <p>
+                **CodeSpeakLearn** is a leading platform for professional and technical education, founded by industry experts **Pallavi** and **Anup**. We empower learners with real-world skills through expert-led training, live projects, industry simulations, and personalized mentorship programs. Whether you are a beginner or aiming to upskill, our courses in AI, Data Science, Python, Java Full Stack, and global languages bridge the gap between academia and industry, guiding every learner toward career growth and innovation.
+            </p>
+            <ul>
+                <li><i class="fa-solid fa-graduation-cap"></i> Certified trainers and mentors with industry experience</li>
+                <li><i class="fa-solid fa-calendar-alt"></i> Flexible online and offline batches for all backgrounds</li>
+                <li><i class="fa-solid fa-laptop-code"></i> Hands-on learning with live industry projects</li>
+                <li><i class="fa-solid fa-handshake-angle"></i> Comprehensive interview preparation and job assistance</li>
+            </ul>
+            <a href="https://www.codespeaklearn.com/about-us" class="cta-button" target="_blank">
+                <i class="fa-solid fa-circle-info"></i> Learn More About Us
+            </a>
+        </div>
+
+        <div id="courses" class="tab-content">
+            <h2>Our Professional Courses</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <i class="fa-brands fa-python"></i>
+                    <h3>Python Unleashed</h3>
+                    <p>Master Python programming from basics to web development. Ideal for beginners and professionals seeking advancement.</p>
+                    <a href="https://www.codespeaklearn.com/python-course" class="cta-button" target="_blank">
+                        <i class="fa-solid fa-arrow-right"></i> Enroll Now
+                    </a>
+                </div>
+                <div class="course-card">
+                    <i class="fa-brands fa-java"></i>
+                    <h3>Full Stack Java Masters</h3>
+                    <p>Comprehensive training in Java, Spring Boot, React, and databases for a future in software development.</p>
+                    <a href="https://www.codespeaklearn.com/java-fullstack-course" class="cta-button" target="_blank">
+                        <i class="fa-solid fa-arrow-right"></i> Enroll Now
+                    </a>
+                </div>
+                <div class="course-card">
+                    <i class="fa-solid fa-robot"></i>
+                    <h3>Artificial Intelligence</h3>
+                    <p>Unlock essential skills in AI through hands-on, practical projects designed for future-ready expertise.</p>
+                    <a href="https://www.codespeaklearn.com/ai-course" class="cta-button" target="_blank">
+                        <i class="fa-solid fa-arrow-right"></i> Enroll Now
+                    </a>
+                </div>
+                <div class="course-card">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Data Scientist</h3>
+                    <p>Professional training covering Python, Machine Learning, and data visualization to advance in the data domain.</p>
+                    <a href="https://www.codespeaklearn.com/data-science-course" class="cta-button" target="_blank">
+                        <i class="fa-solid fa-arrow-right"></i> Enroll Now
+                    </a>
+                </div>
+                <div class="course-card">
+                    <i class="fa-solid fa-language"></i>
+                    <h3>English Communication Essentials</h3>
+                    <p>Enhance your spoken English, business communication, and workplace fluency for professional confidence.</p>
+                    <a href="https://www.codespeaklearn.com/english-communication" class="cta-button" target="_blank">
+                        <i class="fa-solid fa-arrow-right"></i> Learn More
+                    </a>
+                </div>
+                <div class="course-card">
+                    <i class="fa-solid fa-globe"></i>
+                    <h3>German Mastery</h3>
+                    <p>Learn German from A1 to C2 levels, with native instructors guiding you for global opportunities.</p>
+                    <a href="https://www.codespeaklearn.com/german-language" class="cta-button" target="_blank">
+                        <i class="fa-solid fa-arrow-right"></i> Learn More
+                    </a>
+                </div>
+                <div class="course-card">
+                    <i class="fa-solid fa-comment"></i>
+                    <h3>Japanese Mastery</h3>
+                    <p>Writing, speaking, and business communication in Japanese for career and professional growth.</p>
+                    <a href="https://www.codespeaklearn.com/japanese-language" class="cta-button" target="_blank">
+                        <i class="fa-solid fa-arrow-right"></i> Learn More
+                    </a>
+                </div>
+            </div>
+            <br>
+            <h2>Career Development</h2>
+            <ul>
+                <li><i class="fa-solid fa-briefcase"></i> Interview Preparation – Resume building, mock interviews, and answering common questions</li>
+                <li><i class="fa-solid fa-users"></i> Comprehensive career support and alumni network</li>
+            </ul>
+            <a href="https://www.codespeaklearn.com/career-services" class="cta-button" target="_blank">
+                <i class="fa-solid fa-id-card-clip"></i> Explore Career Services
+            </a>
+        </div>
+
+        <div id="team" class="tab-content">
+            <h2>Meet Our Founders</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="https://i.ibb.co/1tkrdZsM/Neha.jpg" alt="Ms. Pallavi">
+                    <h3>Ms. Pallavi</h3>
+                    <p>With 13 years of experience, Pallavi is a passionate educator and co-founder of CodeSpeakLearn. Specializing in language mastery and business communication, she inspires learners with a dynamic approach, bridging academic learning with real-world communication skills to create tomorrow's confident leaders.</p>
+                    <a href="https://www.linkedin.com/in/pallavi-codespeaklearn" class="cta-button" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+                <div class="team-card">
+                    <img src="https://i.ibb.co/Q3M3wfvX/Anup.jpg" alt="Mr. Anup">
+                    <h3>Mr. Anup</h3>
+                    <p>A seasoned technical expert and co-founder with 19 years in IT, Anup excels in software development, Java, Python, AI/ML, and cloud solutions. Dedicated to integrating real-world projects and industry needs in every course, his mentorship empowers learners to meet modern technical challenges.</p>
+                    <a href="https://www.linkedin.com/in/anup-codespeaklearn" class="cta-button" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="tab-content">
+            <h2>Contact Us</h2>
+            <div class="contact-details">
+                <p><i class="fa-solid fa-phone"></i> +91 9969648284</p>
+                <p><i class="fa-solid fa-envelope"></i> contact@codespeaklearn.com</p>
+                <p><i class="fa-solid fa-globe"></i> www.codespeaklearn.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> C1-501, Aldea Espanola, Phase 3, Opposite Orchid Hotel, Baner-Mahalunge Road, Pune 411045</p>
+            </div>
+            <div class="contact-cta-buttons">
+                <a href="tel:+919969648284" class="cta-button">
+                    <i class="fa-solid fa-phone-volume"></i> Call Us
+                </a>
+                <a href="mailto:contact@codespeaklearn.com" class="cta-button">
+                    <i class="fa-solid fa-envelope-open-text"></i> Email Us
+                </a>
+                <a href="https://www.codespeaklearn.com/contact" class="cta-button" target="_blank">
+                    <i class="fa-solid fa-map-location-dot"></i> Find Us
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 CodeSpeakLearn. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-button');
+
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(tabName).classList.add('active');
+            document.querySelector(`button[onclick="openTab('${tabName}')"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
